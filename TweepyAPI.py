@@ -11,7 +11,7 @@ auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 
-search_results = api.search(q="farmers", count=200)
+search_results = api.search(q="lmao", count=200)
 
 dataset = [] 
 
