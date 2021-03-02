@@ -5,19 +5,27 @@ Created on Tue Mar  2 00:20:49 2021
 @author: HP
 """
 
-from TweepyAPI import dataset
+from TweepyAPI_Extended import tweet_list
 import preprocessor as p
 
+dataset=[]
 
-for i in dataset:
-    print(p.tokenize(i["text"]))
-   
-
-for i in dataset:
+for tweet in tweet_list:    
+    tweet=p.tokenize(tweet)
+     
+    
+for tweet in tweet_list:
     p.set_options(p.OPT.URL,p.OPT.MENTION,p.OPT.HASHTAG,p.OPT.RESERVED,p.OPT.NUMBER)
-    i["text"]=p.clean(i["text"])
-    print(i["text"])
-    print("-------------")
+    dataset.append(p.clean(tweet))   
+    
+for tweet in dataset:
+    tweet=tweet.lower()
+    #remove punctuations
+    words=tweet.split(" ")
+    for i in words:
+        if(len(i)<2):
+            words.remove(i)
+    print(words)
+    print("---------------------------------------------------------")
     
     
-
