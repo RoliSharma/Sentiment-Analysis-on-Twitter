@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Mar  2 17:22:33 2021
-
-@author: HP
-"""
-
 import tweepy
 
 access_token="1306511356775010305-RW0inFN6dMQgYsaCNel5CcNtgO7aRT"
@@ -17,7 +10,7 @@ auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 
-text_query = 'Python'
+text_query = 'India'
 count = 150
 tweet_list=[]
 
@@ -31,3 +24,4 @@ for tweet in tweets:
         tweet_list.append(tweet.retweeted_status.full_text)
     except AttributeError:  # Not a Retweet
         tweet_list.append(tweet.full_text)        
+

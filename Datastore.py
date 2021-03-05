@@ -4,9 +4,14 @@ Created on Tue Mar  2 18:20:28 2021
 
 @author: HP
 """
-
+import numpy as np
 import pandas as pd
-from preprocessing import tweet_list
+from preprocessing import tweets
+from sentiment import sentiment,label
+from sklearn.feature_extraction.text import TfidfVectorizer
 
-df=pd.DataFrame(tweet_list)
-print(df)
+df=pd.DataFrame({"value":sentiment,"sentiment":label,"tweet":tweets})
+#print(df.head())
+print(len(tweets),"_",len(sentiment),"_",len(label))
+
+
