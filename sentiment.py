@@ -21,7 +21,7 @@ for tweet in tweets:
         lab="Positive"
         flag=2
     label.append(lab)
-    sentiment.append(lab)
-    #print(tweet,"-------",total)
+    sentiment.append(total)
+    print(tweet,"-------",total)
     
     

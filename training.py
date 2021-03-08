@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
 
 
-X,y=vector,df.value   
+X,y=vector,df.sentiment 
 X_train,X_test,y_train,y_test=train_test_split(X,y,random_state=30)
 clf = MultinomialNB().fit(X_train, y_train)
 y_pred=clf.predict(X_test)

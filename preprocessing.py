@@ -26,13 +26,16 @@ for tweet in dataset:
     for ele in tweet:  
         if ele in punc:  
             tweet = tweet.replace(ele,"")
-        ele=porter.stem(ele)
-    #words=tweet.split(" ")
-    filtered_sentence = []  
-  
-    for w in tweet: 
-        if w in stop_words and len(w)>1:  
-            tweet.remove(w)
-    tweets.append(tweet)
+    words=tweet.split(" ")
+    filtered_sentence = "" 
+    for w in words: 
+        w=porter.stem(w)
+        if w not in stop_words and len(w)>1:  
+            filtered_sentence+=w
+            filtered_sentence+=" "
+    tweets.append(filtered_sentence)
     
+for tweet in tweets:
+    print(tweet)
+    print("------------------------")
 
