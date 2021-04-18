@@ -12,13 +12,13 @@ for tweet in tweets:
         w = TextBlob(word)
         total+=w.sentiment.polarity
     if total<=-0.2:
-        lab="Negative"
+        lab=1
         flag=0
     elif total>-0.2 and total<0.2:
-        lab="Neutral"
+        lab=3
         flag=1
     else:
-        lab="Positive"
+        lab=5
         flag=2
     label.append(lab)
     sentiment.append(total)

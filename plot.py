@@ -5,6 +5,7 @@ from training import NoT,Sentiment
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 data1 = {'Sentiment': Sentiment,
+
          'Number of Tweets': NoT
         }
 df1 = DataFrame(data1,columns=['Sentiment','Number of Tweets'])
