@@ -1,29 +1,20 @@
 import nltk
-
-from TweepyAPI_Extended import tweet_list
+from TweepyAPI_Extended import test_tweet_list
 import preprocessor as p
-from nltk.corpus import stopwords
-nltk.download('stopwords')
-from nltk.stem.porter import PorterStemmer
 
-porter = PorterStemmer()
 stems = []
 
-dataset=[]
-tweets=[]
+cleaned_test_tweets=[]
 
-stop_words = set(stopwords.words('english'))
-print(stop_words)
-
-print('before')
-for tweet in tweet_list:    
+for tweet in test_tweet_list:
     tweet=p.tokenize(tweet)
 
-for tweet in tweet_list:
+for tweet in test_tweet_list:
     p.set_options(p.OPT.URL,p.OPT.MENTION,p.OPT.HASHTAG,p.OPT.RESERVED,p.OPT.NUMBER,p.OPT.EMOJI)
-    dataset.append(p.clean(tweet))   
+    cleaned_test_tweets.append(p.clean(tweet))
 
 
+"""
 punc = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
 for tweet in dataset:
     tweet=tweet.lower()
@@ -43,4 +34,4 @@ for tweet in dataset:
 for tweet in tweets:
     print(tweet)
     print("------------------------")
-
+"""
