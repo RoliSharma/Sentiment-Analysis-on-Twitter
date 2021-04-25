@@ -9,13 +9,17 @@ import pandas as pd
 from preprocessing import tweets
 from sentiment import sentiment,label
 from sklearn.feature_extraction.text import TfidfVectorizer
+
 df=pd.DataFrame({"value":sentiment,"sentiment":label,"tweet":tweets})
 print(df)
+
 #df.to_csv('dataset.csv') 
 #print(df.head())
 
-
 #print(len(tweets),"_",len(sentiment),"_",len(label))
+
+
+
 
 
 
