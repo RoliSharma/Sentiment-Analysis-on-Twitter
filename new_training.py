@@ -1,18 +1,12 @@
 import nltk
-print('hi 2')
 import pandas as pd
-print('hi 4')
-import preprocessor as p
-print('hi 6')
-from nltk.corpus import stopwords
-print('hi 8')
+#import preprocessor as p
+#from nltk.corpus import stopwords
 #nltk.download('stopwords')
 from nltk.stem.porter import PorterStemmer
-print('hi 11')
-from sklearn.feature_extraction.text import CountVectorizer
-print('hi 13')
+#from sklearn.feature_extraction.text import CountVectorizer
 from preprocessing import tweets
-print('hi 15')
+from new_preprocessing import PreProcessTweets
 
 #(0 = negative, 2 = neutral, 4 = positive)
 
@@ -27,8 +21,8 @@ dframe.drop(indexNames, inplace=True)
 print('dframe')
 print(dframe[0:5])
 
-stop_words_list = set(stopwords.words('english'))
-print(stop_words_list)
+#stop_words_list = set(stopwords.words('english'))
+#print(stop_words_list)
 
 tweets_for_training = dframe[['sentiment','text']]
 print(tweets_for_training.head(5))
@@ -36,6 +30,11 @@ print(tweets_for_training.head(5))
 training_tweets = dframe['text'].tolist()
 sentiment_of_tweets = dframe['sentiment'].tolist()
 
+preprocessedTrainingSet = []
+tweetProcessor = PreProcessTweets()
+preprocessedTrainingSet = tweetProcessor.processTweets(tweets_for_training)
+
+"""
 cleaned_tweets = []
 preprocessed_tweets = []
 
@@ -45,6 +44,7 @@ for t in training_tweets:
 for t in training_tweets:
     p.set_options(p.OPT.URL,p.OPT.MENTION,p.OPT.HASHTAG,p.OPT.RESERVED,p.OPT.NUMBER,p.OPT.EMOJI)
     cleaned_tweets.append(p.clean(t))
+
 
 punc = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
 for t in cleaned_tweets:
@@ -64,11 +64,13 @@ for t in cleaned_tweets:
 
 print(preprocessed_tweets[0:5])
 
-# Create a vectorizer Object
-vectorizer_obj = CountVectorizer()
+#vecto = CountVectorizer()
 
-vectorizer_obj.fit(preprocessed_tweets)
-vect = vectorizer_obj.transform(preprocessed_tweets).toarray()
+#vecto.fit(preprocessed_tweets)
+#vect = vecto.transform(preprocessed_tweets).toarray()
+
+"""
+
 
 
 
