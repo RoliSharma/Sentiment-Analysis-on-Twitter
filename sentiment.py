@@ -1,27 +1,28 @@
 from textblob import TextBlob
-from preprocessing import tweets
+from new_preprocessing import preprocessed_test_tweets
 
-sentiment=[]
-label=[]
+sentiment_score = []
+sentiment = []
+preprocessed_test_set = []
 
-for tweet in tweets:
+for tweet in preprocessed_test_tweets:
     total=0
     lab=""
-    words=tweet.split(" ")
-    for word in words:
+    for word in tweet:
         w = TextBlob(word)
         total+=w.sentiment.polarity
-    if total<=-0.2:
-        lab=1
-        flag=0
-    elif total>-0.2 and total<0.2:
-        lab=3
-        flag=1
-    else:
-        lab=5
-        flag=2
-    label.append(lab)
-    sentiment.append(total)
+        if total<=-0.2:
+            lab=1
+            flag=0
+        elif total>-0.2 and total<0.2:
+            lab=3
+            flag=1
+        else:
+            lab=5
+            flag=2
+    sentiment.append(lab)
+    sentiment_score.append(total)
+    preprocessed_test_set.append((tweet,lab))
     print(tweet,"-------",total)
     
     
