@@ -13,27 +13,14 @@ api = tweepy.API(auth)
 
 text_query = entry
 count = 150
-tweet_list=[]
+test_tweet_list=[]
 
 # Creation of query method using parameters
 tweets1 = tweepy.Cursor(api.search,q=text_query,truncated=False,lang="en",tweet_mode="extended",result_type="mixed",retweeted_status=True).items(count)
 
-#text_query = 'sad'
-
-
-# Creation of query method using parameters
-#tweets2 = tweepy.Cursor(api.search,q=text_query,truncated=False,lang="en",tweet_mode="extended",result_type="mixed",retweeted_status=True).items(count)
-         
-#Pulling information from tweets iterable object
-for tweet in tweets1 :
+for each_tweet in tweets1 :
     try:
-        tweet_list.append(tweet.retweeted_status.full_text)
+        test_tweet_list.append(each_tweet.retweeted_status.full_text)
     except AttributeError:  # Not a Retweet
-        tweet_list.append(tweet.full_text)        
-
-#for tweet in tweets2 :
-#    try:
-#        tweet_list.append(tweet.retweeted_status.full_text)
-#    except AttributeError:  # Not a Retweet
-#        tweet_list.append(tweet.full_text)        
+        test_tweet_list.append(each_tweet.full_text)
 
