@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import Label,Entry,PhotoImage #,Canvas,Frame
+from tkinter import Label,Entry,PhotoImage                                           #,Canvas,Frame
 
 def close_window():
     global entry
@@ -11,7 +11,7 @@ r = tk.Tk()     #r is the main window
 r.geometry("500x200")
 #bg = PhotoImage( file = "frame.png")
 value=tk.StringVar(r)
-r.title('Sentiment Analysis on Twiiter'); 
+r.title('Sentiment Analysis on Twitter');
 L = Label(r, text="Enter topic name")
 L.pack()
 E = Entry(r,textvariable=value, bd =5)
